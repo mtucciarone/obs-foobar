@@ -1,0 +1,14 @@
+﻿{
+	"nowplaying": {
+		"playing": $replace(%isplaying%,'?','0'),
+		"paused": $replace(%ispaused%,'?','0'),
+		"albumartist": "$replace(%album artist%,'"','\"','\','\\')",
+		"album": "$replace(%album%,'"','\"','\','\\')",
+		"artist": "$replace(%artist%,'"','\"','\','\\')",
+		"title": "$replace(%title%,'"','\"','\','\\')",
+		"tracknumber": $add($replace(%track number%,'?','0'),0),
+		"length": $replace(%length_seconds%,'?','0'),
+		"elapsed": $replace(%playback_time_seconds%,'?','0'),
+		"path": "$replace($directory_path(%path%),'"','\"','\','\\')"
+	}
+}
