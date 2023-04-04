@@ -49,12 +49,13 @@ const showOrHideWidget = (jsonObject) => {
 };
 
 const pollHandler = () => {
-  xhr.open("GET", `${jsonFile}`, true);
   xhr.send();
+  xhr.open("GET", `${jsonFile}`, true);
   xhr.onreadystatechange = () => {
     if (xhr.readyState === 4) {
+      dothis()
       const jsonObject = JSON.parse(xhr.responseText);
-      showOrHideWidget(jsonObject);
+      
     }
   };
 };
