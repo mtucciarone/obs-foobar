@@ -19,16 +19,7 @@ const init = () => {
   progressLength = $("#progress").width();
 };
 
-const pollHandler = () => {
-  xhr.open("GET", `${jsonFile}`, true);
-  xhr.send();
-  xhr.onreadystatechange = () => {
-    if (xhr.readyState === 4) {
-      const jsonObject = JSON.parse(xhr.responseText);
-      showOrHideWidget(jsonObject);
-    }
-  };
-};
+
 
 const showOrHideWidget = (jsonObject) => {
   if (hideOnNextPoll) {
@@ -55,6 +46,17 @@ const showOrHideWidget = (jsonObject) => {
   if (foobarRunning) {
     updateWidget(jsonObject);
   }
+};
+
+const pollHandler = () => {
+  xhr.open("GET", `${jsonFile}`, true);
+  xhr.send();
+  xhr.onreadystatechange = () => {
+    if (xhr.readyState === 4) {
+      const jsonObject = JSON.parse(xhr.responseText);
+      showOrHideWidget(jsonObject);
+    }
+  };
 };
 
 const updateWidget = (jsonObject) => {
